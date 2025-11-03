@@ -1,0 +1,66 @@
+{
+  "name": "trae-uniapp",
+  "version": "1.0.0",
+  "description": "uni-app project",
+  "main": "main.js",
+  "scripts": {
+    "dev:app": "uni dev --platform app",
+    "dev:custom": "uni dev --platform custom",
+    "dev:h5": "uni dev --platform h5",
+    "dev:h5:ssr": "uni dev --platform h5 --ssr",
+    "dev:mp-alipay": "uni dev --platform mp-alipay",
+    "dev:mp-baidu": "uni dev --platform mp-baidu",
+    "dev:mp-kuaishou": "uni dev --platform mp-kuaishou",
+    "dev:mp-lark": "uni dev --platform mp-lark",
+    "dev:mp-qq": "uni dev --platform mp-qq",
+    "dev:mp-toutiao": "uni dev --platform mp-toutiao",
+    "dev:mp-weixin": "uni dev --platform mp-weixin",
+    "dev:quickapp-webview": "uni dev --platform quickapp-webview",
+    "dev:quickapp-webview-huawei": "uni dev --platform quickapp-webview-huawei",
+    "dev:quickapp-webview-union": "uni dev --platform quickapp-webview-union",
+    "build:app": "uni build --platform app",
+    "build:custom": "uni build --platform custom",
+    "build:h5": "uni build --platform h5",
+    "build:h5:ssr": "uni build --platform h5 --ssr",
+    "build:mp-alipay": "uni build --platform mp-alipay",
+    "build:mp-baidu": "uni build --platform mp-baidu",
+    "build:mp-kuaishou": "uni build --platform mp-kuaishou",
+    "build:mp-lark": "uni build --platform mp-lark",
+    "build:mp-qq": "uni build --platform mp-qq",
+    "build:mp-toutiao": "uni build --platform mp-toutiao",
+    "build:mp-weixin": "uni build --platform mp-weixin",
+    "build:quickapp-webview": "uni build --platform quickapp-webview",
+    "build:quickapp-webview-huawei": "uni build --platform quickapp-webview-huawei",
+    "build:quickapp-webview-union": "uni build --platform quickapp-webview-union"
+  },
+  "dependencies": {
+    "@dcloudio/uni-app": "^3.0.0-alpha-3060420230324001",
+    "@dcloudio/uni-h5": "^3.0.0-alpha-3060420230324001",
+    "@dcloudio/uni-mp-alipay": "^3.0.0-alpha-3060420230324001",
+    "@dcloudio/uni-mp-baidu": "^3.0.0-alpha-3060420230324001",
+    "@dcloudio/uni-mp-kuaishou": "^3.0.0-alpha-3060420230324001",
+    "@dcloudio/uni-mp-lark": "^3.0.0-alpha-3060420230324001",
+    "@dcloudio/uni-mp-qq": "^3.0.0-alpha-3060420230324001",
+    "@dcloudio/uni-mp-toutiao": "^3.0.0-alpha-3060420230324001",
+    "@dcloudio/uni-mp-weixin": "^3.0.0-alpha-3060420230324001",
+    "@dcloudio/uni-quickapp-webview": "^3.0.0-alpha-3060420230324001",
+    "@dcloudio/uni-ui": "^1.4.0",
+    "vue": "^3.2.0"
+  },
+  "devDependencies": {
+    "@dcloudio/types": "^3.4.0",
+    "@dcloudio/uni-automator": "^3.0.0-alpha-3060420230324001",
+    "@dcloudio/uni-cli-shared": "^3.0.0-alpha-3060420230324001",
+    "@dcloudio/vite-plugin-uni": "^3.0.0-alpha-3060420230324001",
+    "@vue/runtime-core": "^3.2.0",
+    "sass": "^1.56.0",
+    "vite": "^4.0.0"
+  },
+  "browserslist": [
+    "Android >= 4.4",
+    "ios >= 9"
+  ],
+  "uni-app": {
+    "scripts": {}
+  }
+}

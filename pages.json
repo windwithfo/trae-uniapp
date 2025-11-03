@@ -3,7 +3,26 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "首页",
+				"navigationBarBackgroundColor": "#1890ff",
+				"navigationBarTextStyle": "white"
+			}
+		}, 
+	    {
+			"path": "pages/profile/profile",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationBarBackgroundColor": "#1890ff",
+				"navigationBarTextStyle": "white"
+			}
+		},
+	    {
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationBarBackgroundColor": "#1890ff",
+				"navigationBarTextStyle": "white",
+				"enablePullDownRefresh": false
 			}
 		}
 	],
