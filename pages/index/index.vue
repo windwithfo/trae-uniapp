@@ -10,19 +10,24 @@
 				:key="item.id"
 				:show="swipeIndex === index"
 				@change="swipeChange"
-				@click="handleClick(index)"
-				@longpress="handleLongPress(index)"
 			>
-				<uni-swipe-action-item :options="options" @click="onClickItem"></uni-swipe-action-item>
+				<!-- 内容区域 -->
+				<view @click="handleClick(index)" @longpress="handleLongPress(index)" class="swipe-content">
+					<uni-list-item 
+						:title="item.title"
+						:note="item.content"
+					>
+						<!-- 自定义复选框插槽 -->
+						<template v-slot:header>
+							<view class="checkbox-container">
+								<checkbox v-if="showCheckbox" :checked="item.checked" @click.stop="handleCheck(index)"></checkbox>
+							</view>
+						</template>
+					</uni-list-item>
+				</view>
 				
-				<uni-list-item 
-					:title="item.title"
-					:note="item.content"
-					:show-checkmark="showCheckbox"
-					:checked="item.checked"
-					@click="handleCheck(index)"
-				>
-				</uni-list-item>
+				<!-- 左滑操作按钮 -->
+				<uni-swipe-action-item :options="options" @click="onClickItem(index)"></uni-swipe-action-item>
 			</uni-swipe-action>
 		</uni-list>
 		
@@ -105,17 +110,16 @@
 				}
 			},
 			// 左滑操作按钮点击
-			onClickItem(e) {
-				const { index } = e
-				// 删除当前项
-				this.listData.splice(index, 1)
-				uni.showToast({
-					title: '删除成功',
-					icon: 'success'
-				})
-				// 关闭滑动操作
-				this.swipeIndex = -1
-			},
+		onClickItem(index) {
+			// 删除当前项
+			this.listData.splice(index, 1)
+			uni.showToast({
+				title: '删除成功',
+				icon: 'success'
+			})
+			// 关闭滑动操作
+			this.swipeIndex = -1
+		},
 			// 批量删除
 			batchDelete() {
 				// 删除选中的项
@@ -168,14 +172,79 @@
 		box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
 		overflow: hidden;
 	}
+	
+	/* 复选框容器样式 */
+	.checkbox-container {
+		display: flex;
+		align-items: center;
+		width: 60rpx;
+		height: 100%;
+		margin-right: 20rpx;
+	}
+	
+	/* 滑动内容区域样式 */
+	.swipe-content {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+	}
 
 	/* 滑动操作按钮样式 */
 	.uni-swipe-action__content {
 		background-color: #fff;
+		width: 100%;
 	}
 
 	.uni-swipe-action-item {
 		height: 100%;
+		width: 120rpx;
+	}
+
+	/* 列表项样式调整 */
+	.uni-list-item {
+		padding-left: 0;
+	}
+
+	/* 复选框容器样式 */
+	.checkbox-container {
+		position: absolute;
+		left: 20rpx;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 60rpx;
+		height: 60rpx;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* 复选框样式 */
+	checkbox {
+		width: 32rpx;
+		height: 32rpx;
+		border-radius: 50%;
+		border-color: #999;
+	}
+
+	/* 选中状态的复选框样式 */
+	checkbox[checked] {
+		border-color: #007AFF;
+		background-color: #007AFF;
+	}
+
+	/* 滑动操作按钮文本样式 */
+	.uni-swipe-action-item .uni-swipe-action-item__button {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* 列表项内容样式调整 */
+	.uni-list-item__content {
+		padding-left: 100rpx;
 	}
 
 	/* 底部批量删除栏样式 */
