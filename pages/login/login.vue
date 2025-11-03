@@ -43,6 +43,9 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
+import { useStore } from 'vuex'
+
+const store = useStore()
 
 const loginForm = reactive({
   username: '',
@@ -80,6 +83,9 @@ const handleLogin = async () => {
         title: '登录成功',
         icon: 'success'
       })
+      
+      // 保存用户信息到store
+      store.dispatch('login', { username: loginForm.username })
       
       // 跳转到首页
       uni.switchTab({
