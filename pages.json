@@ -1,5 +1,4 @@
-{
-	"pages": [
+{"pages": [
 		{
 			"path": "pages/index/index",
 			"style": {
@@ -24,6 +23,15 @@
 				"navigationBarTextStyle": "white",
 				"enablePullDownRefresh": false
 			}
+		},
+	    {
+			"path": "pages/lucky-draw/index",
+			"style": {
+				"navigationBarTitleText": "抽奖",
+				"navigationBarBackgroundColor": "#ff4444",
+				"navigationBarTextStyle": "white",
+				"enablePullDownRefresh": false
+			}
 		}
 	],
 	"globalStyle": {
@@ -42,6 +50,14 @@
 				"text": "首页",
 				"iconFont": {
 					"text": "",
+					"fontFamily": "uniicons"
+				}
+			},
+			{
+				"pagePath": "pages/lucky-draw/index",
+				"text": "抽奖",
+				"iconFont": {
+					"text": "",
 					"fontFamily": "uniicons"
 				}
 			},
