@@ -128,6 +128,17 @@ export default {
 			});
 		});
 	},
+	onHide() {
+		// 应用进入后台时停止录音
+		if (this.isRecording) {
+			this.recorderManager.stop();
+		}
+		// 应用进入后台时停止播放
+		if (this.isPlaying) {
+			this.innerAudioContext.stop();
+			this.isPlaying = false;
+		}
+	},
 	beforeDestroy() {
 		// 清理资源
 		if (this.recorderManager) {
@@ -137,6 +148,8 @@ export default {
 			this.innerAudioContext.stop();
 			this.innerAudioContext.destroy();
 		}
+		// 清理计时器
+		this.stopDurationTimer();
 	},
 	methods: {
 		// 开始录音
@@ -199,7 +212,10 @@ export default {
 			this.recordedFile = null;
 			this.recordingDuration = 0;
 			this.fileSize = '';
-			this.isPlaying = false;
+			if (this.isPlaying) {
+				this.innerAudioContext.stop();
+				this.isPlaying = false;
+			}
 			uni.showToast({
 				title: '已清空录音',
 				icon: 'success'
